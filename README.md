@@ -40,7 +40,7 @@ server {
 ```
 $ sudo apt-get install python3-pip
 $ sudo apt-get pip3 install fastapi
-$ sudo apt-get pip3 install  uvicorn
+$ sudo apt-get pip3 install uvicorn
 ```
 
 ## 그 외 [FianceDataAPI](https://github.com/Tu-Sori/FinanceDataAPI/blob/main/README.md) 참고해서 설치
