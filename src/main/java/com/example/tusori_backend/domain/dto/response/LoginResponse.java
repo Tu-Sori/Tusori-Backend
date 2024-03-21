@@ -1,23 +1,17 @@
-package com.example.tusori_backend.domain.entity;
+package com.example.tusori_backend.domain.dto.response;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity
 @Getter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "user")
-public class User {
-
-    @Id
-    private Long userId;
-
+public class LoginResponse {
+    private Long id;
     private String nickname;
-
     private String email;
+    private String accessToken;
 }

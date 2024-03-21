@@ -19,18 +19,9 @@ public class JwtAuthenticationProvider {
     @Value("${jwt.access-token-time}")
     private long access_token_time;
 
-    @Value("${jwt.refresh-token-time}")
-    private long refresh_token_time;
-
-
     // Access Token 생성
     public String createAccessToken(Long userId, String name) {
         return createToken(userId, name, "Access", access_token_time);
-    }
-
-    // Refresh Token 생성
-    public String createRefreshToken(Long userId, String name) {
-        return createToken(userId, name, "Refresh", refresh_token_time);
     }
 
     public String createToken(Long userId, String name,

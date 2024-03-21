@@ -1,0 +1,24 @@
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
+    password: ${JASYPT_PASSWORD}
+
+spring:
+  datasource:
+    url: ENC(bbEKGpdFmA3dTY7iWlcidE2pkTFXqhX/rV5yb59lDTh2K4oZ1+6AHdIiNtu8qC3UrjX45vLOmlzlNT/IiuVo+khC3tCUIrob2qy7UTTDs+vEMz4Yv+eVNzgqVEy1Y8YE)
+    username: ENC(yqn0XgX/z3zOtnUm6KrDQw==)
+    password: ENC(4BlkxpbZKj6luUU2mB6/pNt9rap3UhQT)
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: create
+
+oauth:
+  kakao:
+    client-id: ENC(guPwx1mXT9xTMjYcYYR3OsJLhhGGHnih5ZCfAXybEJOTyfOICWL8p1OLIw845VcB)
+
+jwt:
+  secret: ENC(hA/iR69Zsh+GEM6hXqX0A9+M93k3nSfMWW1uI20E7lS7EgniswuGaXkc9VYVHDVdhgqaXddIkOm8OzQwWqsQd6iNmUGxOtH1VwO3ks3ilSQOV0cfBxi4ubjuowcOuqE5RSbktXkw+EGqXil8PaB+w8iUVBkW+NFwoSwSxF5CWloAw6RrvUNo8NMO2JwAsnGP)
+  access-token-time: ENC(Xr0iqDEfeAfiAfNLaQX8pYKjuj73ns18)

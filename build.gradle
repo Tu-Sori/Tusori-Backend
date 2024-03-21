@@ -24,9 +24,10 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client'
 	implementation 'io.jsonwebtoken:jjwt:0.9.1' // JWT
 	implementation 'mysql:mysql-connector-java:8.0.27'
+	implementation 'javax.xml.bind:jaxb-api:2.3.0' // DatatypeConverter 오류
+	implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5' // 암호화
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
