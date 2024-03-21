@@ -43,7 +43,7 @@ $ sudo apt-get pip3 install fastapi
 $ sudo apt-get pip3 install  uvicorn
 ```
 
-## 그 외 [FianceDataAPI]() 참고해서 설치
+## 그 외 [FianceDataAPI](https://github.com/Tu-Sori/FinanceDataAPI/blob/main/README.md) 참고해서 설치
 
 > **(기타) SQL**
 ```
