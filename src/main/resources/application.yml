@@ -5,7 +5,7 @@ jasypt:
 
 spring:
   datasource:
-    url: ENC(bbEKGpdFmA3dTY7iWlcidE2pkTFXqhX/rV5yb59lDTh2K4oZ1+6AHdIiNtu8qC3UrjX45vLOmlzlNT/IiuVo+khC3tCUIrob2qy7UTTDs+vEMz4Yv+eVNzgqVEy1Y8YE)
+    url: ENC(2lRk4H3ARQbB2Eg2v8jOfYq/38/y1EDqG4G+n0YdQolnHgA7pEujjD3lm9WTDlz/xGghsDMaWGLK60hyL7eunbp9U8S3WPK38KlCn3aQ27dYynFnJC4FTiRyLw0ZBFJq)
     username: ENC(yqn0XgX/z3zOtnUm6KrDQw==)
     password: ENC(4BlkxpbZKj6luUU2mB6/pNt9rap3UhQT)
     driver-class-name: com.mysql.cj.jdbc.Driver
