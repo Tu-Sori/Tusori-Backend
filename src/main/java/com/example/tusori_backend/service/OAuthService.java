@@ -35,7 +35,7 @@ public class OAuthService {
     }
 
     private Long findOrCreateMember(KakaoInfoResponse info) {
-        return userRepository.findByEmail(info.getKakao_account().getEmail())
+        return userRepository.findById(info.getId())
                 .map(User::getUserId)
                 .orElseGet(() -> newMember(info));
     }
