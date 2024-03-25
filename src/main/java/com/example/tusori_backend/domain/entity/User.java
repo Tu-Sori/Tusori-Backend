@@ -15,9 +15,12 @@ import lombok.NoArgsConstructor;
 public class User {
 
     @Id
-    private Long userId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int userId;
 
     private String nickname;
 
-    private String email;
+    private Long email; // Kakao에서 보내준 Id
+
+    private int assets;
 }

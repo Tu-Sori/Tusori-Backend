@@ -21,34 +21,33 @@ public class OAuthService {
         String accessToken = kakaoClient.requestAccessToken(authorizationCode);
         KakaoInfoResponse info = kakaoClient.requestKakaoInfo(accessToken);
 
-        Long userId = findOrCreateMember(info);
-        User user = userRepository.findById(userId).get();
+        Long userEmail = findOrCreateMember(info);
+        User user = userRepository.findByEmail(userEmail).get();
 
         LoginResponse response = LoginResponse.builder()
-                .id(userId)
+                .id(user.getUserId())
                 .nickname(user.getNickname())
-                .email(user.getEmail())
-                .accessToken(jwtAuthenticationProvider.createAccessToken(userId, info.getProperties().getNickname()))
+                .accessToken(jwtAuthenticationProvider.createAccessToken(user.getUserId(), info.getProperties().getNickname()))
                 .build();
 
         return response;
     }
 
     private Long findOrCreateMember(KakaoInfoResponse info) {
-        return userRepository.findById(info.getId())
-                .map(User::getUserId)
+        return userRepository.findByEmail(info.getId())
+                .map(User::getEmail)
                 .orElseGet(() -> newMember(info));
     }
 
     private Long newMember(KakaoInfoResponse info) {
         User user = User.builder()
-                .userId(info.getId())
                 .nickname(info.getProperties().getNickname())
-                .email(info.getKakao_account().getEmail())
+                .email(info.getId())
+                .assets(10000000)
                 .build();
 
         userRepository.save(user);
 
-        return user.getUserId();
+        return user.getEmail();
     }
 }

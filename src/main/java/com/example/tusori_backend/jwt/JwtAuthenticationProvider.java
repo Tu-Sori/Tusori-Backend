@@ -20,22 +20,22 @@ public class JwtAuthenticationProvider {
     private long access_token_time;
 
     // Access Token 생성
-    public String createAccessToken(Long userId, String name) {
+    public String createAccessToken(int userId, String name) {
         return createToken(userId, name, "Access", access_token_time);
     }
 
-    public String createToken(Long userId, String name,
+    public String createToken(int userId, String name,
                               String type, Long tokenValidTime) {
         return Jwts.builder()
                 .setHeaderParam("type", type) // Header 구성
                 .setClaims(createClaims(userId, name)) // Payload - Claims 구성
-                .setSubject(userId.toString()) // Payload - Subject 구성
+                .setSubject(String.valueOf(userId)) // Payload - Subject 구성
                 .signWith(SignatureAlgorithm.HS256, secretKey)
                 .setExpiration(new Date(System.currentTimeMillis() + tokenValidTime))
                 .compact();
     }
 
-    public static Claims createClaims(Long userId, String name) {
+    public static Claims createClaims(int userId, String name) {
         Claims claims = Jwts.claims();
         claims.put("userId", userId);
         claims.put("name", name);
