@@ -25,9 +25,9 @@ public class StockRecord {
 
     private String code; // 기업 코드
 
-    private LocalDate record_date; // 체결 일자
+    private LocalDate sell_or_buy_date; // 매수/매도 일자
 
-    private int order_price; // 주문 단가
+    private LocalDate record_date; // 체결 일자
 
     private int contract_price; // 체결 단가
 

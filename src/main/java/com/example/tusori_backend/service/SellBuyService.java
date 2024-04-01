@@ -63,11 +63,11 @@ public class SellBuyService {
 
             StockRecord saveStockRecord = stockRecordRepository.save(StockRecord.builder()
                     .sell_or_buy(true) // true -> 매수
-                    .code(code)
-                    .record_date(date)
-//                            .order_price()
-                    .contract_price(sellBuyRequest.getPrice())
-                    .quantity(sellBuyRequest.getAmount())
+                    .code(code) // 기업코드
+                    .sell_or_buy_date(date) // 매수/매도 일자
+                    .record_date(date) // 체결 일자
+                    .contract_price(sellBuyRequest.getPrice()) // 체결단가
+                    .quantity(sellBuyRequest.getAmount()) // 주문수량
 //                            .proceeds()
 //                            .proceeds_rate()
                     .user(user)
