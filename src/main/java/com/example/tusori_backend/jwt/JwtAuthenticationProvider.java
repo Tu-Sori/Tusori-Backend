@@ -42,11 +42,11 @@ public class JwtAuthenticationProvider {
         return claims;
     }
 
-    public Long getUserId() {
+    public int getUserId() {
         HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.currentRequestAttributes()).getRequest();
         String accessToken = request.getHeader("Authorization").split(" ")[1].trim();
         String id = getId(accessToken);
-        return Long.parseLong(id);
+        return Integer.parseInt(id);
     }
 
     public String getId(String accessToken) {
