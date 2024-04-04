@@ -84,6 +84,8 @@ public class SellBuyService {
                     .build());
         }
 
+        user.changeAssets(user.getAssets() - purchaseAmount); // 가용자산 변경
+
         return SellBuyResponse.builder()
                 .available_assets(user.getAssets() - purchaseAmount) // 가용자산
                 .average_purchase(average_purchase) // 평균매수가
