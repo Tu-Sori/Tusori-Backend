@@ -28,9 +28,6 @@ public class SaveStock {
 
     private int my_quantity; // 보유수량
 
-    private int valuation; // 평가손익금
-
-    private float valuation_ratio; // 평가손익률
 
     @ManyToOne
     @JoinColumn(name = "stock_record_id")
