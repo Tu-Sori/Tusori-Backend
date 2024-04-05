@@ -15,8 +15,8 @@ public class SellBuyController {
     private final SellBuyService sellBuyService;
 
     @PostMapping("buy") // 매수 프로세스
-    public ApiResponse<?> buyStrock(@RequestParam("code") String code, @RequestBody SellBuyRequest sellBuyRequest) {
+    public ApiResponse<?> buyStock(@RequestParam("code") String code, @RequestBody SellBuyRequest sellBuyRequest) {
         int userId = jwtAuthenticationProvider.getUserId();
-        return ApiResponse.ok(sellBuyService.buyStrock(userId, code, sellBuyRequest));
+        return ApiResponse.ok(sellBuyService.buyStock(userId, code, sellBuyRequest));
     }
 }

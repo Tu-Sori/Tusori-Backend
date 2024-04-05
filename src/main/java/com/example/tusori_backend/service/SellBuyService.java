@@ -23,7 +23,7 @@ public class SellBuyService {
 
     // 매수 프로세스
     @Transactional
-    public SellBuyResponse buyStrock(int userId, String code, SellBuyRequest sellBuyRequest) {
+    public SellBuyResponse buyStock(int userId, String code, SellBuyRequest sellBuyRequest) {
         User user = userRepository.findByUserId(userId);
         boolean possession = stockRecordRepository.existsByUserUserIdAndCode(userId, code); // 주식을 보유하고 있는지 유무
 
