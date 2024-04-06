@@ -24,4 +24,8 @@ public class User {
     private Long email; // Kakao에서 보내준 Id
 
     private int assets;
+
+    public void changeAssets(int assets) {
+        this.assets = assets;
+    }
 }
