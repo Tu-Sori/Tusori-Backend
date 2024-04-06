@@ -68,8 +68,6 @@ public class SellBuyService {
                     .record_date(date) // 체결 일자
                     .contract_price(sellBuyRequest.getPrice()) // 체결단가
                     .quantity(sellBuyRequest.getAmount()) // 주문수량
-//                            .proceeds()
-//                            .proceeds_rate()
                     .user(user)
                     .build());
 
@@ -79,8 +77,6 @@ public class SellBuyService {
                     .average_price(average_price) // 평단가
                     .my_quantity(sellBuyRequest.getAmount()) // 보유수량
                     .stockRecord(saveStockRecord)
-//                    .valuation() // 평가손익금
-//                    .valuation_ratio() // 평가손익률
                     .build());
         }
 
