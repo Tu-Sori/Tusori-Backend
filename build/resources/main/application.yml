@@ -1,0 +1,26 @@
+jasypt:
+  encryptor:
+    bean: jasyptStringEncryptor
+    password: ${JASYPT_PASSWORD}
+
+spring:
+  datasource:
+    url: ENC(Lu0drdZ0tB+QyfIuw1HfCFY/lpU3PR/kJCP/2QcX/13Pnl14N/BzIhDWfnoUQ4PEBkwlkYhbCvCsaulI18WEjeDuRVE6abJcGpFD8ppe37tOBIINrkE2xFzFP99s5Rag)
+    username: ENC(yqn0XgX/z3zOtnUm6KrDQw==)
+    password: ENC(4BlkxpbZKj6luUU2mB6/pNt9rap3UhQT)
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    database: mysql
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+
+oauth:
+  kakao:
+    client-id: ENC(guPwx1mXT9xTMjYcYYR3OsJLhhGGHnih5ZCfAXybEJOTyfOICWL8p1OLIw845VcB)
+
+jwt:
+  secret: ENC(hA/iR69Zsh+GEM6hXqX0A9+M93k3nSfMWW1uI20E7lS7EgniswuGaXkc9VYVHDVdhgqaXddIkOm8OzQwWqsQd6iNmUGxOtH1VwO3ks3ilSQOV0cfBxi4ubjuowcOuqE5RSbktXkw+EGqXil8PaB+w8iUVBkW+NFwoSwSxF5CWloAw6RrvUNo8NMO2JwAsnGP)
+  access-token-time: ENC(Xr0iqDEfeAfiAfNLaQX8pYKjuj73ns18)
