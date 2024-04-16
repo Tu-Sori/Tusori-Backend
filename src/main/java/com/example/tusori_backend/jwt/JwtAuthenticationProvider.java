@@ -9,15 +9,20 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import java.util.Base64;
 import java.util.Date;
 
 @Component
 public class JwtAuthenticationProvider {
-    @Value("${jwt.secret}")
+    //@Value("${jwt.secret}")
     private String secretKey;
 
     @Value("${jwt.access-token-time}")
     private long access_token_time;
+
+    public JwtAuthenticationProvider(@Value("${jwt.secret}") String secretKey) {
+        this.secretKey = Base64.getEncoder().encodeToString(secretKey.getBytes());
+    }
 
     // Access Token 생성
     public String createAccessToken(int userId, String name) {
