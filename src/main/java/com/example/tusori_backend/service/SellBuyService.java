@@ -53,7 +53,7 @@ public class SellBuyService {
 
             stockRecord.get(0).updateRecordDate(date); // 체결일자 변경
             stockRecord.get(0).updateContractPrice(sellBuyRequest.getPrice()); //체결단가 변경
-            stockRecord.get(0).updateQuentity(reserves); // 주문수량 변경
+            stockRecord.get(0).updateQuantity(reserves); // 주문수량 변경
 
         } else {
             average_purchase = purchaseAmount / sellBuyRequest.getAmount();

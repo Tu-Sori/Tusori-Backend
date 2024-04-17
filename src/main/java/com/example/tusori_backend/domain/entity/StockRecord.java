@@ -21,7 +21,7 @@ public class StockRecord {
     @Column(name = "stock_record_id")
     private int stock_record_id;
 
-    private boolean sell_or_buy; // 매도/매수 구분
+    private boolean sell_or_buy; // 매수/매도 구분
 
     private String code; // 기업 코드
 
@@ -49,7 +49,7 @@ public class StockRecord {
         this.contract_price = contract_price;
     }
 
-    public void updateQuentity(int quentity) {
-        this.quantity = quentity;
+    public void updateQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }
