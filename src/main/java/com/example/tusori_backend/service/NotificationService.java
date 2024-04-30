@@ -14,9 +14,10 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 import java.io.IOException;
 import java.time.*;
-import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -27,10 +28,23 @@ public class NotificationService {
     private final NotificationRepository notificationRepository;
     private static final Long DEFAULT_TIMEOUT = 600L * 1000 * 60;
 
+    @Transactional
     public SseEmitter subscribe(int userId) {
         SseEmitter emitter = createEmitter(userId);
         sendToClient(userId, "EventStream Created. [userId=" + userId + "]", "sse 접속 성공");
         return emitter;
+    }
+
+    @Transactional
+    public List<NotificationResponse> getNotificationHistory(int userId) {
+    List<Notification> notifications = notificationRepository.findByUserUserId(userId);
+        return notifications.stream()
+                .sorted(Comparator.comparing(Notification::getNotificationId).reversed())
+                .map(notification ->
+                        new NotificationResponse(notification.getContent(),
+                                notification.isRead(),
+                                notification.getCreatedAt().toString()))
+                .collect(Collectors.toList());
     }
 
     @Transactional
@@ -53,7 +67,7 @@ public class NotificationService {
         if (currentTime.isAfter(startTime) && currentTime.isBefore(endTime)) {
             LocalDateTime nextTime = LocalDateTime.now().plusSeconds(10); // 10초 뒤
             scheduleNextNotification(userId, nextTime, content2, today);
-        } else { // 현재 시간에서 30초 후
+        } else {
             LocalDateTime nextTime = LocalDateTime.of(today.plusDays(1), LocalTime.of(9, 0)); // 다음날 오전 9시
             scheduleNextNotification(userId, nextTime, content2, today);
         }

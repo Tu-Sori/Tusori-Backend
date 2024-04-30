@@ -19,16 +19,14 @@ public class SellBuyController {
     @PostMapping("buy") // 매수 프로세스
     public ApiResponse<?> buyStock(@RequestParam("code") String code, @RequestBody SellBuyRequest sellBuyRequest) {
         int userId = jwtAuthenticationProvider.getUserId();
-        sellBuyService.buyStock(userId, code, sellBuyRequest);
         notificationService.notify(userId, "매수");
-        return ApiResponse.ok();
+        return ApiResponse.ok(sellBuyService.buyStock(userId, code, sellBuyRequest));
     }
 
     @PostMapping("sell") // 매도 프로세스
     public ApiResponse<?> sellStock(@RequestParam("code") String code, @RequestBody SellBuyRequest sellBuyRequest) {
         int userId = jwtAuthenticationProvider.getUserId();
-        sellBuyService.sellStock(userId, code, sellBuyRequest);
         notificationService.notify(userId, "매도");
-        return ApiResponse.ok();
+        return ApiResponse.ok(sellBuyService.sellStock(userId, code, sellBuyRequest));
     }
 }

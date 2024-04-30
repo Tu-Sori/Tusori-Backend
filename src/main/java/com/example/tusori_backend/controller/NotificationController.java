@@ -24,4 +24,12 @@ public class NotificationController {
         int userId = jwtAuthenticationProvider.getUserId();
         return notificationService.subscribe(userId);
     }
+
+    @GetMapping(value = "/history")
+    public ApiResponse<List<NotificationResponse>> notificationHistory() {
+        int userId = jwtAuthenticationProvider.getUserId();
+        List<NotificationResponse> notifications = notificationService.getNotificationHistory(userId);
+        return ApiResponse.ok(notifications);
+    }
+
 }
