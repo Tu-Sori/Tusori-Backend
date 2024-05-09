@@ -55,8 +55,9 @@ public class NotificationService {
         String content1 = "[" + notificationName + "] " + comment1;
         String content2 = "[" + notificationName + "] " + comment2;
 
-        LocalDate today = LocalDate.now();
-        LocalTime currentTime = LocalTime.now();
+        LocalDateTime now = LocalDateTime.now(ZoneId.of("Asia/Seoul"));
+        LocalDate today = now.toLocalDate();
+        LocalTime currentTime = now.toLocalTime();
         LocalTime startTime = LocalTime.of(9, 0); // 오전 9시
         LocalTime endTime = LocalTime.of(15, 30); // 오후 3시 30분
 
@@ -65,7 +66,7 @@ public class NotificationService {
 
         // 현재 시간 오전 9시 ~ 오후 3시반
         if (currentTime.isAfter(startTime) && currentTime.isBefore(endTime)) {
-            LocalDateTime nextTime = LocalDateTime.now().plusSeconds(10); // 10초 뒤
+            LocalDateTime nextTime = now.plusSeconds(10); // 10초 뒤
             scheduleNextNotification(userId, nextTime, content2, today);
         } else {
             LocalDateTime nextTime = LocalDateTime.of(today.plusDays(1), LocalTime.of(9, 0)); // 다음날 오전 9시
@@ -76,7 +77,7 @@ public class NotificationService {
     }
 
     private void scheduleNextNotification(int userId, LocalDateTime nextTime, String content2, LocalDate today) {
-        Instant instant = nextTime.atZone(ZoneId.systemDefault()).toInstant();
+        Instant instant = nextTime.atZone(ZoneId.of("Asia/Seoul")).toInstant();
 
         TaskScheduler scheduler = new ConcurrentTaskScheduler();
         scheduler.schedule(() -> {
