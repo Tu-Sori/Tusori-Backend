@@ -6,10 +6,7 @@ import com.example.tusori_backend.domain.entity.StockRecord;
 import com.example.tusori_backend.domain.entity.User;
 import com.example.tusori_backend.jwt.JwtAuthenticationProvider;
 import com.example.tusori_backend.params.KakaoInfoResponse;
-import com.example.tusori_backend.repository.NotificationRepository;
-import com.example.tusori_backend.repository.SaveStockRepository;
-import com.example.tusori_backend.repository.StockRecordRepository;
-import com.example.tusori_backend.repository.UserRepository;
+import com.example.tusori_backend.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +22,7 @@ public class OAuthService {
     private final StockRecordRepository stockRecordRepository;
     private final SaveStockRepository saveStockRepository;
     private final NotificationRepository notificationRepository;
+    private final InterestStockRepository interestStockRepository;
     private final JwtAuthenticationProvider jwtAuthenticationProvider;
 
     public LoginResponse loginKakao(String authorizationCode) {
@@ -71,6 +69,7 @@ public class OAuthService {
 
         stockRecordRepository.deleteByUserUserId(userId);
         notificationRepository.deleteByUserUserId(userId);
+        interestStockRepository.deleteByUserUserId(userId);
         userRepository.deleteByUserId(userId);
 
         return "초기화 완료";
