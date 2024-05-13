@@ -6,4 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SaveStockRepository extends JpaRepository<SaveStock, Integer> {
     SaveStock findByStockRecord(StockRecord stockRecord);
+    void deleteByStockRecord(StockRecord stockRecord);
 }

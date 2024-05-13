@@ -8,4 +8,6 @@ import java.util.List;
 public interface StockRecordRepository extends JpaRepository<StockRecord, Integer> {
     List<StockRecord> findByUserUserIdAndCode(int userId, String code);
     boolean existsByUserUserIdAndCode(int userId, String code);
+    void deleteByUserUserId(int userId);
+    List<StockRecord> findByUserUserId(int userId);
 }
