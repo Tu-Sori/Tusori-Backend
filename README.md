@@ -33,6 +33,9 @@ server {
     }
 }
 ```
+```
+sudo systemctl reload nginx
+```
 
 <br/>
 
