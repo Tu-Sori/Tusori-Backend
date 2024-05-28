@@ -16,7 +16,7 @@ server {
     listen 80;
     server_name {탄력적 IP};
 
-    location /spring-boot/ {
+    location /springboot/ {
         proxy_pass http://localhost:8080/;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
