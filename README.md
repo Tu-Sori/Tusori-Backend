@@ -9,7 +9,8 @@ $ sudo apt-get install nginx
 
 Nginx 설정 파일 수정
 ```
-sudo vi /etc/nginx/sites-available/default
+sudo vi /etc/nginx/sites-available/tusori.conf
+sudo ln -s /etc/nginx/sites-available/tusori.conf /etc/nginx/sites-enabled/tusori.conf
 ```
 ```
 server {
@@ -35,6 +36,7 @@ server {
 ```
 ```
 sudo systemctl reload nginx
+sudo systemctl restart nginx
 ```
 
 <br/>
