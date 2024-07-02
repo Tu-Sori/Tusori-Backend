@@ -19,7 +19,7 @@ public class NotificationController {
     private final JwtAuthenticationProvider jwtAuthenticationProvider;
     private final NotificationService notificationService;
 
-    @GetMapping(value = "", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    @GetMapping(value = "/", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
     public SseEmitter subscribe() {
         int userId = jwtAuthenticationProvider.getUserId();
         return notificationService.subscribe(userId);
@@ -31,5 +31,4 @@ public class NotificationController {
         List<NotificationResponse> notifications = notificationService.getNotificationHistory(userId);
         return ApiResponse.ok(notifications);
     }
-
 }
